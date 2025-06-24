@@ -1,9 +1,9 @@
 // June 16th
-I was following a tutorial to help learn React and JS. I am not used to JS because I've only worked with python and C style languages. So I am not used to the dynamic and functional programming that JS is. 
+I was following a tutorial to help learn React and JS. I am not used to JS because I've only worked with python and C style languages. So I am not used to the dynamic and functional programming that JS is.
 
 What I've learned in React is useState, useEffect, API calls in react js, conditional rendering, and hooks.
 
-Use State is a hook that lets us add state variables to function components. This helps with keeping the current state updated dynamically. 
+Use State is a hook that lets us add state variables to function components. This helps with keeping the current state updated dynamically.
 
 For instance, if we want to type into a search bar we need a useState hook to be called everytime there is a change inside the search bar. We could do this by having an event handling like onChange. This will re-render everytime there is a change inside the search bar. That is the power of the useState hook.
 
@@ -38,6 +38,7 @@ function SearchBar() {
 export default SearchBar;
 
 ```
+
 Use Effect is a hook that lets you perform side effects (like fetching data, timers, subscriptions, etc.) The setup is the useEffect calls a function that does something dependent on something. I know this sounds dumb but it's far easier to show the code than explain it in my opinion
 
 ```react
@@ -61,13 +62,38 @@ function Timer() {
     const interval = setInterval(() => setSeconds((s) => s + 1), 1000); // sets interval using setSeconds function
     return () => clearInterval(clearInterval); // Clears interval
   }, []); // Runs initially
-  
+
   return <div>Seconds passed: {seconds}</div>
 }
 
 ```
-Conditional rendering is just like what the name implies. There is a condition and based on that condition is what gets rendered. If statements, Ternary operators, and && are all examples of conditions. This is good for making decisions based on what you want rendered on the screen or not on the screen. 
+
+Conditional rendering is just like what the name implies. There is a condition and based on that condition is what gets rendered. If statements, Ternary operators, and && are all examples of conditions. This is good for making decisions based on what you want rendered on the screen or not on the screen.
 
 ```react
+function Welcome({ isLoggedIn }) {
+  if (isLoggedIn) {
+    return <h1>Welcome back!</h1>;
+  } else {
+    return <h1>Please log in</h1>;
+  }
+}
+
+function Status({ online }) {
+  return (
+    // {value} ? if true do this : if false do this
+    <p>Status: {online ? "Online" : "Offline"}</p>
+  );
+}
+
+function Dashboard({ hasNotifications }) {
+  return (
+    // {value} && show this or nothing
+    <div>
+      <h1>Dashboard</h1>
+      {hasNotifications && <p>You have new notifications!</p>}
+    </div>
+  );
+}
 
 ```

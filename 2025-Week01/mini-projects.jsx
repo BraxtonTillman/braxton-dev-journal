@@ -46,7 +46,7 @@ function Timer() {
 
   return <div>Seconds passed: {seconds}</div>;
 }
-
+// Conditional Rendering
 function Welcome({ isLoggedIn }) {
   if (isLoggedIn) {
     return <h1>Welcome back!</h1>;
